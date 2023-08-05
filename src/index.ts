@@ -32,8 +32,6 @@ function arrAgeAdder(ageArr: Array<number>) {
             }
         }
     }
-
-
 }
 
 console.log(arrAgeAdder([]))
