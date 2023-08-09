@@ -2,25 +2,25 @@
 
 // Let’s use the printName function as an example. The first example below is correct and only passes in what is expected. 
 
-const printName = (name: { first: string; last: string }) => {
+const printName2 = (name: { first: string; last: string }) => {
   return `Name ${name.first} ${name.last}`;
 };
 
-printName({ first: 'Mick', last: 'Jagger' });
+printName2({ first: 'Mick', last: 'Jagger' });
 
 // Now, let’s pass in an extra parameter to the object literal. 
 
-const printName1 = (name: { first: string; last: string }) => {
+const printName3 = (name: { first: string; last: string }) => {
   return `Name ${name.first} ${name.last}`;
 };
 
-printName1({ first: 'Mick', last: 'Jagger', age: 420 });
+printName3({ first: 'Mick', last: 'Jagger', age: 420 });
 //^^ added age
 
 // What do we think will happen? Is this going to give us an error, or is this okay?
 // We’re not using ***age*** in the function, but what does the parameter annotation really mean?
 
-const printName2 = (name: { first: string; last: string })
+const printName4 = (name: { first: string; last: string })
 
 // Is this saying the object must ********only******** have *****first***** & ***last*** and nothing else?
 
@@ -35,14 +35,14 @@ const printName2 = (name: { first: string; last: string })
 
 // Instead, if took all the properties, and placed them into a variable, TypeScript would not complain. 
 
-const printName3 = (name: { first: string; last: string }) => {
+const printName5 = (name: { first: string; last: string }) => {
   return `Name ${name.first} ${name.last}`;
 };
 
-printName3({ first: 'Mick', last: 'Jagger', age: 420 });
+printName5({ first: 'Mick', last: 'Jagger', age: 420 });
 //^^TypeScript Error!
 const singer = { first: 'Mick', last: 'Jagger', age: 420 };
-printName3(singer);
+printName5(singer);
 //No errors here!
 
 // When passing in a variable, TypeScript will only check to ensure the annotated methods it’s expecting are present in the variable, everything else is ignored. 
